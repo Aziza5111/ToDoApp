@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: sans-serif;
+  border: 1px solid black;
+  margin: 100px 5px;
+}
+
+h4 {
+  margin-top: 5px;
+  text-align: center;
+}
+.fName {
+  border: 1px solid grey;
+  border-radius: 9999px;
+  padding: 8px 15px;
+  background-color: rgb(234, 224, 224);
+  width: 290px;
+  margin: 0px 200px;
+  margin-top: 15px;
+  font-size: 10px;
+}
+
+.fa-plus {
+  border: 1px solid lime;
+  border-radius: 50%;
+  background-color: lime;
+  padding: 5.5px;
+  margin: -225px;
+}
+
+.task-item {
+  border: 1px solid rgb(221, 212, 212);
+  background-color: rgb(234, 224, 224);
+  display: block;
+  padding: 6px 6px;
+  width: 290px;
+  margin: 6px 0;
+  margin-left: 200px;
+  font-size: 10px;
+  font-family: sans-serif;
+  color: black;
+}
