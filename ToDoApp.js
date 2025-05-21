@@ -1,83 +1,49 @@
-// let fName = document.querySelector(".fName");
-// let Btn = document.querySelector(".btn");
-// let ul = document.querySelector(".names");
-// let massiv = [];
+let fName = document.querySelector(".fName");
+let Btn = document.querySelector(".btn");
+let ul = document.querySelector(".names");
+let massiv = [];
 
-// if (localStorage.getItem("tasks") == null) {
-//   massiv = [];
-// } else {
-//   massiv = JSON.parse(localStorage.getItem("tasks"));
-//   console.log(massiv);
-// }
+if (localStorage.getItem("tasks") == null) {
+  massiv = [];
+} else {
+  massiv = JSON.parse(localStorage.getItem("tasks"));
+  console.log(massiv);
+}
 
-// function createList() {
-//   massiv.forEach((item) => {
-//     let list = document.createElement("li");
-//     list.innerHTML = `${item} <span>
-//           <i class="fa-solid fa-pen"></i>
-//           <i class="fa-solid fa-trash"></i>
-//         </span>`;
-//     ul.appendChild(list);
-//   });
-// }
-
-// fName.addEventListener("keydown", function (event) {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//     fName.value !== "" ? massiv.push(fName.value) : "";
-//     fName.value = "";
-//     localStorage.setItem("tasks", JSON.stringify(massiv));
-
-//     ul.textContent = "";
-
-//     createList();
-//   }
-// });
-
-// Btn.addEventListener("click", () => {
-//   if (fName.value !== "") {
-//     massiv.push(fName.value);
-//     fName.value = "";
-//     localStorage.setItem("tasks", JSON.stringify(massiv));
-
-//     ul.textContent = "";
-
-//     createList();
-//   }
-// });
-
-// createList();
-
-// Select elements
-const taskInput = document.getElementById("task-input");
-const addTaskBtn = document.getElementById("add-task-btn");
-const taskList = document.getElementById("task-list");
-
-// Add task
-addTaskBtn.addEventListener("click", () => {
-  const taskText = taskInput.value.trim();
-  if (taskText === "") return;
-
-  const taskItem = document.createElement("li");
-  taskItem.className = "task-item";
-
-  taskItem.innerHTML = `
-    <span>${taskText}</span>
-    <button class="delete-btn">Delete</button>
-  `;
-
-  // Mark task as completed
-  taskItem.addEventListener("click", (e) => {
-    if (e.target.tagName !== "BUTTON") {
-      taskItem.classList.toggle("completed");
-    }
+function createList() {
+  massiv.forEach((item) => {
+    let list = document.createElement("li");
+    list.innerHTML = `${item} <span>
+          <i class="fa-solid fa-pen"></i>
+          <i class="fa-solid fa-trash"></i>
+        </span>`;
+    ul.appendChild(list);
   });
+}
 
-  // Delete task
-  taskItem.querySelector(".delete-btn").addEventListener("click", () => {
-    taskList.removeChild(taskItem);
-  });
+fName.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    fName.value !== "" ? massiv.push(fName.value) : "";
+    fName.value = "";
+    localStorage.setItem("tasks", JSON.stringify(massiv));
 
-  taskList.appendChild(taskItem);
-  taskInput.value = "";
+    ul.textContent = "";
+
+    createList();
+  }
 });
+
+Btn.addEventListener("click", () => {
+  if (fName.value !== "") {
+    massiv.push(fName.value);
+    fName.value = "";
+    localStorage.setItem("tasks", JSON.stringify(massiv));
+
+    ul.textContent = "";
+
+    createList();
+  }
+});
+
+createList();
